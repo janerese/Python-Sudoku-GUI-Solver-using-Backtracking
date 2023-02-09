@@ -4,7 +4,8 @@
 sudoku = input("Enter Soduku: ")
 # 070000009510420600080300700008001370023080040400900100962800030000010400700203096
 puz = [[int(sudoku[(i+j)-1]) for i in range(1,10)] for j in range(0,81,9)]
-
+print("Unsolved Sudoku Problem:")
+print(puz)
 
 def check(puzzle, i, row, col):
     rows = puzzle[int(row)]
@@ -47,5 +48,6 @@ def solve(board):
 
     return False
 
+print("Solved Sudoku Problem:")
 print(solve(puz))
 print(puz)
