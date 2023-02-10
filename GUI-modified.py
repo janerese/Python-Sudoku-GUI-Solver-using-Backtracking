@@ -202,6 +202,7 @@ def main():
 
                         if board.is_finished():
                             print("Game over")
+                            messagebox.showinfo(title="Win", message="Congratulations! You have solved the Sudoku Problem!")
                             run = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -218,5 +219,5 @@ def main():
         pygame.display.update()
 
 main()
-messagebox.showinfo(title="Win", message="Congratulations! You have solved the Sudoku Problem!")
+messagebox.showinfo(title="Exit", message="Thank you for playing!")
 pygame.quit()
