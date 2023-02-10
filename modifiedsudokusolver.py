@@ -4,9 +4,23 @@
 
 sudoku = input("Enter Soduku: ")
 # 070000009510420600080300700008001370023080040400900100962800030000010400700203096
-puz = [[int(sudoku[(i+j)-1]) for i in range(1,10)] for j in range(0,81,9)]
-print("Unsolved Sudoku Problem:")
-print(puz)
+board = [[int(sudoku[(i+j)-1]) for i in range(1,10)] for j in range(0,81,9)]
+print("List type:")
+print(board)
+
+def print_board(bo):
+    for i in range(len(bo)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - - - ")
+
+        for j in range(len(bo[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(bo[i][j])
+            else:
+                print(str(bo[i][j]) + " ", end="")
 
 def check(puzzle, i, row, col):
     rows = puzzle[int(row)]
@@ -24,8 +38,8 @@ def check(puzzle, i, row, col):
 
 
 def find(puzzle):
-    for i in range(0,9,1):
-        for j in range(0,9,1):
+    for i in range(len(board)):
+        for j in range(len(board)):
             if puzzle[i][j]==0:
                 return i,j
     return None
@@ -49,6 +63,9 @@ def solve(board):
 
     return False
 
+print("\nUnsolved Sudoku Problem:")
+print_board(board)
+solve(board)
+print("\n_________________________\n")
 print("Solved Sudoku Problem:")
-print(solve(puz))
-print(puz)
+print_board(board)
